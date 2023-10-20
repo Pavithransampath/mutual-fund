@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="Name">Name</label>
+        <input type="text" name="Name"><br><br>
+        <label for="Fundcode">Fundcode</label>
+        <input type="number" name="Fundcode"><br><br>
+        <label for="Investedamount">Investedamount</label>
+        <input type="number" name="Investedamount"><br><br>
+        <label for="Unitheld">Unitheld</label>
+        <input type="number" name="Unitheld" ><br><br>
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+
+    </form>
+    <table>
+        <tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Fundcode</th>
+            <th>Investedamount</th>
+            <th>Unitheld</th>
+            <th>Nav</th>
+            <th>Currentvalue</th>
+            <th>Growth</th>
+            <th colspan="2"> Actions</th>
+        </tr>
+
+        {%for i in l1%}
+
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Fundhouse}}</td>
+            <td>{{i.Investedamount}}</td>
+            <td>{{i.Unitheld}}</td>
+            <td>{{i.nav}}</td>
+            <td>{{i.Currentvalue}}</td>
+            <td>{{i.Growth}}</td>
+            <td><a href="{{url_for('fun2',item=loop.index)}}">Edit</a></td>
+            <td><a href="{{url_for('fun1',delete=loop.index)}}">Delete</a></td>
+        </tr>
+        {%endfor%}
+
+
+
+
+    </table>
+</body>
+</html>
